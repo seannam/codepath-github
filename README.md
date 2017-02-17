@@ -9,7 +9,7 @@ Time spent: **2.5** hours spent in total
 The following **required** functionality is completed:
 
 - [x] Table rows for search results should be dynamic height according to the content height.
-- [ x] Custom cells should have the proper Auto Layout constraints.
+- [x] Custom cells should have the proper Auto Layout constraints.
 
 The following **additional** features are implemented:
 
@@ -24,7 +24,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/W5l107Z.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://imgur.com/4gp1gSI.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
