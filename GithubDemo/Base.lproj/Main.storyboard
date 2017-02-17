@@ -57,13 +57,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PMu-ds-amQ">
-                                                    <rect key="frame" x="8" y="56.5" width="55" height="55"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="55" id="NyR-xU-Kp6"/>
-                                                        <constraint firstAttribute="width" constant="55" id="qPW-Oi-8ep"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="sRr-vj-l5R">
                                                     <rect key="frame" x="160" y="8" width="21" height="24"/>
                                                 </imageView>
@@ -82,6 +75,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PMu-ds-amQ">
+                                                    <rect key="frame" x="8" y="56.5" width="55" height="55"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="55" id="NyR-xU-Kp6"/>
+                                                        <constraint firstAttribute="width" constant="55" id="qPW-Oi-8ep"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="HWR-jY-hhd" firstAttribute="leading" secondItem="XPO-Oh-7Kb" secondAttribute="leading" constant="8" id="7TW-1W-Pv4"/>
@@ -90,6 +90,7 @@
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Tlg-7U-j14" secondAttribute="bottom" constant="8" id="GlI-w7-Lgn"/>
                                                 <constraint firstItem="k5i-2o-YGR" firstAttribute="leading" secondItem="HWR-jY-hhd" secondAttribute="trailing" constant="4" id="I1X-a7-A29"/>
                                                 <constraint firstItem="sRr-vj-l5R" firstAttribute="top" secondItem="XPO-Oh-7Kb" secondAttribute="top" constant="8" id="I83-jh-zsm"/>
+                                                <constraint firstItem="PMu-ds-amQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="HWR-jY-hhd" secondAttribute="bottom" constant="8" id="IAt-ws-W5w"/>
                                                 <constraint firstItem="sRr-vj-l5R" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hkc-MV-mYH" secondAttribute="trailing" constant="8" id="K1H-lu-42c"/>
                                                 <constraint firstItem="Tlg-7U-j14" firstAttribute="top" secondItem="sRr-vj-l5R" secondAttribute="bottom" constant="12" id="KRa-zN-7Dm"/>
                                                 <constraint firstItem="9D3-RS-m5W" firstAttribute="top" secondItem="XPO-Oh-7Kb" secondAttribute="top" constant="8" id="KVE-SC-Qkv"/>
