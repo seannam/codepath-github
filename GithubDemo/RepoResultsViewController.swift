@@ -18,7 +18,8 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
     var searchSettings = GithubRepoSearchSettings()
 
     var repos: [GithubRepo]!
-
+    var minStars: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,7 +39,6 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
 
         // Perform the first search when the view controller first loads
         doSearch()
-        //self.tableView.reloadData()
     }
 
     // Perform the search.
@@ -48,16 +48,18 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
 
         // Perform request to GitHub API to get the list of repositories
         GithubRepo.fetchRepos(searchSettings, successCallback: { (newRepos) -> Void in
-
+            self.repos = []
+            
             // Print the returned repositories to the output window
             for repo in newRepos {
                 print(repo)
-                //self.repos?.append(repo)
                 
+                if(repo.stars! >= self.minStars){
+                    self.repos.append(repo)
+                }
             }
-            self.repos = newRepos
+            //self.repos = newRepos
             self.tableView.reloadData()
-
 
             MBProgressHUD.hide(for: self.view, animated: true)
             }, error: { (error) -> Void in
@@ -85,18 +87,21 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let navController = segue.destination as! UINavigationController
-        let vc = navController.topViewController as! SearchSettingsViewController
-        //vc.settings =   // ... Search Settings ...
-        vc.delegate = self
+        if segue.identifier == "searchSettingsSegue" {
+        
+            let navController = segue.destination as! UINavigationController
+            let vc = navController.topViewController as! SearchSettingsViewController
+            vc.minStars =  self.minStars
+            vc.delegate = self
+        }
     }
     
-    func didSaveSettings(settings: GithubRepoSearchSettings) {
-        
+    func didSaveSettings(settings: Int) {
+        self.minStars = settings
+        self.doSearch()
     }
     
     func didCancelSettings() {
-        
     }
 
 }

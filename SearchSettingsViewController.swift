@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol SettingsPresentingViewControllerDelegate: class {
+    func didSaveSettings(settings: Int)
+    func didCancelSettings()
+}
+
 class SearchSettingsViewController: UIViewController {
 
     @IBOutlet weak var starSlider: UISlider!
@@ -15,9 +20,17 @@ class SearchSettingsViewController: UIViewController {
     
     weak var delegate: SettingsPresentingViewControllerDelegate?
     
+    var minStars: Int!
+    var minStarsCopy: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        starLabel.text = "\(minStars!)"
+        minStarsCopy = minStars
+        
+        starSlider.value = Float(minStars!)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -27,15 +40,23 @@ class SearchSettingsViewController: UIViewController {
     }
     
     @IBAction func onSave(_ sender: Any) {
-        var numOfStars = starSlider.value
-        
-        self.delegate?.didSaveSettings(settings)
+        self.minStars = minStarsCopy
+        self.delegate?.didSaveSettings(settings: minStarsCopy!)
+        self.dismiss(animated: true, completion: nil)
+
     }
     
     @IBAction func onCancel(_ sender: Any) {
         self.delegate?.didCancelSettings()
+        self.dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func starSliderChanged(_ sender: UISlider) {
+        minStarsCopy = Int(sender.value)
+        print("[DEBUG] \(minStarsCopy)")
+        starLabel.text = "\(minStarsCopy!)"
+        
+    }
     /*
     // MARK: - Navigation
 
@@ -46,9 +67,4 @@ class SearchSettingsViewController: UIViewController {
     }
     */
 
-}
-
-protocol SettingsPresentingViewControllerDelegate: class {
-    func didSaveSettings(settings: GithubRepoSearchSettings)
-    func didCancelSettings()
 }

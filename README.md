@@ -2,7 +2,7 @@
 
 **Github Repo** is a GitHub Repo search app using the [GitHub API](https://developer.github.com/v3/search/#search-repositories).
 
-Time spent: **2.5** hours spent in total
+Time spent: **5** hours spent in total
 
 ## User Stories
 
@@ -10,28 +10,24 @@ The following **required** functionality is completed:
 
 - [x] Table rows for search results should be dynamic height according to the content height.
 - [x] Custom cells should have the proper Auto Layout constraints.
+- [x] Filter repos based on number of stars
 
 The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
+- []
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
-
-1. Autolayout with labels
-2.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://imgur.com/4gp1gSI.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://imgur.com/zR2hTsC.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
-
+Had to look up how to set the min/max value of the slider in Interface Builder even though I knew I could do it programmatically. 
 ## License
 
     Copyright 2017 Sean Sangwoo Nam
