@@ -10,7 +10,7 @@ import UIKit
 import MBProgressHUD
 
 // Main ViewController
-class RepoResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class RepoResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SettingsPresentingViewControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,8 +27,6 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
         
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
-        
-        
         
         // Initialize the UISearchBar
         searchBar = UISearchBar()
@@ -79,19 +77,29 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-        
         if let repos = repos {
             return repos.count
         } else {
             return 0
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navController = segue.destination as! UINavigationController
+        let vc = navController.topViewController as! SearchSettingsViewController
+        //vc.settings =   // ... Search Settings ...
+        vc.delegate = self
+    }
+    
+    func didSaveSettings(settings: GithubRepoSearchSettings) {
+        
+    }
+    
+    func didCancelSettings() {
+        
+    }
 
 }
-
-
-
-
 
 // SearchBar methods
 extension RepoResultsViewController: UISearchBarDelegate {
